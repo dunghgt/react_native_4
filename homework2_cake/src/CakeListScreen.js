@@ -6,11 +6,12 @@ import {
 import Cake from './Cake';
 
 import { data } from './database.json';
+import CakeTouch from './CakeTouch';
 
 class CakeListScreen extends Component {
     state = {}
 
-    renderItem = (data) => <Cake
+    renderItem = (data) => <CakeTouch
         cake={data.item}
         navigation={this.props.navigation} />
 

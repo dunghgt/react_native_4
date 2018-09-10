@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import {
     Text, StyleSheet,
-    View, Image, TouchableOpacity,
+    View, Image,
 } from 'react-native';
 
 class Cake extends Component {
     state = {}
     render() {
         return (
-            <TouchableOpacity
-                style={[styles.cake, { backgroundColor: this.props.cake.bgcolor }]}
-                onPress={() => this.props.navigation.navigate('CakeDetail', {
-                    cake: this.props.cake
-                })}
-            >
+            <View style={[styles.cake, { backgroundColor: this.props.cake.bgcolor }]}>
                 <Image
                     style={{
                         height: 100,
@@ -22,8 +17,7 @@ class Cake extends Component {
                     }}
                     source={{ uri: this.props.cake.image }} />
                 <Text style={styles.cakename}>{this.props.cake.title}</Text>
-
-            </TouchableOpacity >
+            </View >
         );
     }
 }
