@@ -1,0 +1,36 @@
+{
+    "data": [
+        {
+            "title": "Donuts",
+            "bgcolor": "#f46388",
+            "image": "https://png.pngtree.com/svg/20161026/donut_1307164.png",
+            "types": [
+                "Double Chocolate",
+                "Vanilla Frosted",
+                "Strawberry Frosted",
+                "Boston Kreme"
+            ]
+        },
+        {
+            "title": "Cupcakes",
+            "bgcolor": "#f3b2f6",
+            "image": "http://sv1.upsieutoc.com/2018/09/10/cupcake36e9104d21e26952.png",
+            "types": [
+                "Chocolate Coconut Cream Pie",
+                "Chocolate Espresso",
+                "Caramel Chocolate Chip",
+                "Blackforest Cherry",
+                "Red Velvet"
+            ]
+        },
+        {
+            "title": "Pastries",
+            "bgcolor": "#ff755e",
+            "image": "http://sv1.upsieutoc.com/2018/09/10/pastryda0757b29f1f11ab.png",
+            "types": [
+                "Boston cream pie",
+                "Banoffee pie"
+            ]
+        }
+    ]
+}
