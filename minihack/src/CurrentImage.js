@@ -4,16 +4,19 @@ import {
     View,
 } from 'react-native';
 
+import { imageConvert } from './Convert.js';
+
 class CurrentImage extends Component {
     state = {}
+
     render() {
         return (
             <View>
                 <Image
                     style={styles.image}
-                    source={{ uri: 'http://sv1.upsieutoc.com/2018/09/15/clouds.png' }}
+                    source={imageConvert(this.props.day.list[0].weather[0].main)}
                 />
-                <Text style={styles.status}>light rain</Text>
+                <Text style={styles.status}>{this.props.day.list[0].weather[0].description}</Text>
             </View>
 
         );
@@ -23,9 +26,6 @@ class CurrentImage extends Component {
 export default CurrentImage;
 
 const styles = StyleSheet.create({
-    // container: {
-
-    // },
     image: {
         height: 150,
         width: 150,
@@ -34,5 +34,6 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 30,
         fontWeight: 'bold',
+        marginLeft: 14
     }
 })

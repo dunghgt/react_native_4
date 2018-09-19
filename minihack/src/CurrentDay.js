@@ -4,13 +4,16 @@ import {
     View,
 } from 'react-native';
 
+import { timeConvert } from './Convert.js';
+
 class CurrentDay extends Component {
     state = {}
     render() {
+
         return (
             <View style={styles.container}>
-                <Text style={styles.city}>Hanoi</Text>
-                <Text style={styles.day}>{this.props.day.dt}</Text>
+                <Text style={styles.city}>{this.props.day.city.name}</Text>
+                <Text style={styles.date}>{timeConvert(this.props.day.list[0].dt)}</Text>
             </View>
         );
     }
@@ -28,7 +31,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white'
     },
-    day: {
+    date: {
         fontSize: 20,
         color: 'white'
     }

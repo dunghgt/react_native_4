@@ -6,25 +6,20 @@ import {
     StyleSheet,
 } from 'react-native';
 
+import { timeConvert, imageConvert } from './Convert.js';
+
 class DayItems extends Component {
     state = {}
-    timeConverter(UNIX_timestamp) {
-        var a = new Date(UNIX_timestamp * 1000);
-        var year = a.getFullYear();
-        var month = a.getMonth();
-        var date = a.getDate();
-        var time = date + '/' + month + '/' + year;
-        return time;
-    }
+
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.text}>{this.timeConverter(this.props.day.dt)}</Text>
+                <Text style={styles.text}>{timeConvert(this.props.day.dt)}</Text>
                 <View style={styles.temp}>
                     <Text style={styles.text}>{Math.floor(this.props.day.temp.day - 273)}</Text>
                     <Image
                         style={styles.image}
-                        source={{ uri: 'http://sv1.upsieutoc.com/2018/09/15/clouds.png' }} />
+                        source={imageConvert(this.props.day.weather[0].main)} />
                 </View>
             </View>
         );
@@ -37,8 +32,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginHorizontal: '5%',
         marginVertical: '3%',
-        padding: '3%',
-        backgroundColor: 'green',
+        paddingHorizontal: '2%',
+        paddingBottom: 10,
+        backgroundColor: '#2E2B3D',
         borderRadius: 5,
         alignItems: 'center',
     },
