@@ -1,0 +1,3 @@
+rootProject.name = 'reduxAndAPI'
+
+include ':app'
