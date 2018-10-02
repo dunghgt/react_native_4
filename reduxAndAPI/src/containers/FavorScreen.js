@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    Text,
+    Text, FlatList,
     View,
 } from 'react-native';
 import MovieIcon from '../components/MovieIcon';
@@ -9,16 +9,23 @@ import { connect } from 'react-redux';
 
 class FavorScreen extends Component {
     state = {}
+
+    renderItem = (data) => <MovieIcon item={data.item} bgColor={'#ff751a'} />
+
     render() {
         console.log(this.props.data)
         return (
             <View>
-                {/* <MovieIcon item={this.props.data} bgColor={'navy'} /> */}
+                <FlatList
+                    data={this.props.data}
+                    renderItem={this.renderItem}
+                    keyExtractor={(item) => (item.id.toString())}
+                />
             </View>
         );
     }
 }
 
-// const mapStateToProps = ({ data }) => ({ data })
+const mapStateToProps = ({ data }) => ({ data })
 
-export default FavorScreen;
+export default connect(mapStateToProps)(FavorScreen);

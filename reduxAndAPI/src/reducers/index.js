@@ -1,6 +1,6 @@
-// import { combineReducers } from 'redux'
-// import addFavorListReducer from './addFavorListReducer';
+import { combineReducers } from 'redux'
+import addFavorListReducer from './addFavorListReducer';
 
-// export default combineReducers({
-//     data: addFavorListReducer
-// })
+export default combineReducers({
+    data: addFavorListReducer
+})

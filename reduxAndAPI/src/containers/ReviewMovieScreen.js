@@ -15,26 +15,26 @@ class ReviewMovieScreen extends Component {
     //     this.props.navigation.setParams({ add: this._onPressAddFavor });
     // }
 
-    // _onPressAddFavor = () => {
-    //     this.props.addFavorList({
-    //         id: this.props.navigation.getParam("item").id,
-    //         title: this.props.navigation.getParam("item").title,
-    //         image: this.props.navigation.getParam("item").poster_path,
-    //         vote_avg: this.props.navigation.getParam("item").vote_average,
-    //         vote_count: this.props.navigation.getParam("item").vote_count,
-    //         popularity: this.props.navigation.getParam("item").popularity
-    //     })
-    //     this.props.setParam('FavorMovie')
+    _onPressAddFavor = () => {
+        this.props.addFavorList({
+            id: this.props.navigation.getParam("item").id,
+            original_title: this.props.navigation.getParam("item").original_title,
+            poster_path: this.props.navigation.getParam("item").poster_path,
+            vote_average: this.props.navigation.getParam("item").vote_average,
+            vote_count: this.props.navigation.getParam("item").vote_count,
+            popularity: this.props.navigation.getParam("item").popularity
+        })
+        this.props.navigation.navigate('FavorMovie')
 
 
-    // }
+    }
 
     render() {
         return (
             <View style={styles.container}>
                 <TouchableOpacity
                     style={styles.button}
-                // onPress={this.props.navigation.getParam('add')}
+                    onPress={this._onPressAddFavor}
                 >
                     <Text style={styles.textbutton}>Add Favorite</Text>
                 </TouchableOpacity>
@@ -84,4 +84,4 @@ const styles = StyleSheet.create({
 
 
 
-export default ReviewMovieScreen;
+export default connect(null, { addFavorList })(ReviewMovieScreen);

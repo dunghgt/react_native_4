@@ -6,12 +6,14 @@ export default function (state = [], action) {
             return [
                 {
                     id: action.payload.id,
-                    title: action.payload.title,
-                    image: action.payload.image,
-                    vote_avg: action.payload.vote_avg,
+                    original_title: action.payload.original_title,
+                    poster_path: action.payload.poster_path,
+                    vote_average: action.payload.vote_average,
                     vote_count: action.payload.vote_count,
                     popularity: action.payload.popularity
                 }, ...state
             ]
+        default:
+            return state
     }
 }

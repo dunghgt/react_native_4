@@ -61298,9 +61298,9 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _index2 = _interopRequireDefault(_index);
 
-  var _jsxFileName = "d:\\code\\react_native_ 4\\reduxAndAPI\\src\\containers\\App.js";
-
   var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _jsxFileName = "d:\\code\\react_native_ 4\\reduxAndAPI\\src\\containers\\App.js";
 
   var _reactNative = _require(_dependencyMap[2], "react-native");
 
@@ -61317,6 +61317,14 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   var _FavorScreen = _require(_dependencyMap[6], "./FavorScreen");
 
   var _FavorScreen2 = _interopRequireDefault(_FavorScreen);
+
+  var _reactRedux = _require(_dependencyMap[7], "react-redux");
+
+  var _redux = _require(_dependencyMap[8], "redux");
+
+  var _reducers = _require(_dependencyMap[9], "../reducers");
+
+  var _reducers2 = _interopRequireDefault(_reducers);
 
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -61345,13 +61353,14 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     };
   }
 
+  var store = (0, _redux.createStore)(_reducers2.default);
   var Navigation = (0, _reactNavigation.createStackNavigator)({
     ListMovie: {
       screen: _ListMovieScreen2.default,
       navigationOptions: function navigationOptions(_ref) {
         var navigation = _ref.navigation;
         return {
-          title: 'List Movie Trending',
+          title: 'Movie Trending',
           headerStyle: {
             backgroundColor: '#cc0052'
           },
@@ -61359,7 +61368,35 @@ __d(function (global, _require, module, exports, _dependencyMap) {
           headerTitleStyle: {
             fontSize: 20,
             fontWeight: 'bold'
-          }
+          },
+          headerRight: _react3.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+              onPress: function onPress() {
+                return navigation.navigate('FavorMovie');
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 31
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.Text,
+              {
+                style: {
+                  fontSize: 18,
+                  fontWeight: 'bold',
+                  color: '#f2f2f2',
+                  marginEnd: 10
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 32
+                }
+              },
+              "List Favorite"
+            )
+          )
         };
       }
     },
@@ -61393,7 +61430,33 @@ __d(function (global, _require, module, exports, _dependencyMap) {
           headerTitleStyle: {
             fontSize: 20,
             fontWeight: 'bold'
-          }
+          },
+          headerLeft: _react3.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+              onPress: function onPress() {
+                return navigation.navigate('ListMovie');
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 70
+              }
+            },
+            _react3.default.createElement(_reactNative.Image, {
+              style: {
+                height: 30,
+                width: 30,
+                marginEnd: 10
+              },
+              source: {
+                uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEKSURBVGhD7dMxagJBFMbxVbHyBhZpLTyFEMhF0tva7QkCaSwk2CQ2WUd2tDPu8wS5QBrrXECw0cksvkJlTev35PvBwLLzivmzswlRtTRN6/poUwihNsvlxeWyc15+Pr10dMuOY0QxnnkJJ+tDt224EhHiV3nTEXzl/1AVEa/Yxvuvto5h+y8iW6wedAwbI1AwAgUjUDACBSNQMAIFI1DcRUQpHvjVfMT7ctmKB9+fRrhcfk1FlLIsa5QHPw8pDvGqPeuIHc4XvRizvZOY1SNjEDEGFWNQMQYVY1AxBhVjUDEG1bUYl6+fdMSO6hiZ6LYtlzHOy0C37JnOpet8MYyrPxp9N/U10e0lyR+GznmkkPcJ3wAAAABJRU5ErkJggg=='
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 71
+              }
+            })
+          )
         };
       }
     }
@@ -61420,22 +61483,32 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       key: "render",
       value: function render() {
         return _react3.default.createElement(
-          _reactNative.View,
+          _reactRedux.Provider,
           {
-            style: {
-              flex: 1
-            },
+            store: store,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 67
+              lineNumber: 83
             }
           },
-          _react3.default.createElement(Navigation, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 68
-            }
-          })
+          _react3.default.createElement(
+            _reactNative.View,
+            {
+              style: {
+                flex: 1
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 84
+              }
+            },
+            _react3.default.createElement(Navigation, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 85
+              }
+            })
+          )
         );
       }
     }]);
@@ -61444,7 +61517,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   }(_react2.Component));
 
   exports.default = App;
-},491,[118,179,12,492,609,637,661],"src\\containers\\App.js");
+},491,[118,179,12,492,609,637,661,640,650,663],"src\\containers\\App.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
   module.exports = {
     get createNavigationContainer() {
@@ -81051,7 +81124,18 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                 args[_key] = arguments[_key];
             }
 
-            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ReviewMovieScreen.__proto__ || Object.getPrototypeOf(ReviewMovieScreen)).call.apply(_ref, [this].concat(args))), _this), _this.state = {}, _temp), _possibleConstructorReturn(_this, _ret);
+            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ReviewMovieScreen.__proto__ || Object.getPrototypeOf(ReviewMovieScreen)).call.apply(_ref, [this].concat(args))), _this), _this.state = {}, _this._onPressAddFavor = function () {
+                _this.props.addFavorList({
+                    id: _this.props.navigation.getParam("item").id,
+                    original_title: _this.props.navigation.getParam("item").original_title,
+                    poster_path: _this.props.navigation.getParam("item").poster_path,
+                    vote_average: _this.props.navigation.getParam("item").vote_average,
+                    vote_count: _this.props.navigation.getParam("item").vote_count,
+                    popularity: _this.props.navigation.getParam("item").popularity
+                });
+
+                _this.props.navigation.navigate('FavorMovie');
+            }, _temp), _possibleConstructorReturn(_this, _ret);
         }
 
         _createClass(ReviewMovieScreen, [{
@@ -81070,6 +81154,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                         _reactNative.TouchableOpacity,
                         {
                             style: styles.button,
+                            onPress: this._onPressAddFavor,
                             __source: {
                                 fileName: _jsxFileName,
                                 lineNumber: 35
@@ -81165,7 +81250,9 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         }
     });
 
-    exports.default = ReviewMovieScreen;
+    exports.default = (0, _reactRedux.connect)(null, {
+        addFavorList: _actions.addFavorList
+    })(ReviewMovieScreen);
 },637,[118,179,12,639,640,662],"src\\containers\\ReviewMovieScreen.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
     Object.defineProperty(exports, "__esModule", {
@@ -81341,7 +81428,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         },
         image: {
             width: 80,
-            height: 120
+            height: 120,
+            borderRadius: 5
         }
     });
 
@@ -83083,26 +83171,56 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                 args[_key] = arguments[_key];
             }
 
-            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = FavorScreen.__proto__ || Object.getPrototypeOf(FavorScreen)).call.apply(_ref, [this].concat(args))), _this), _this.state = {}, _temp), _possibleConstructorReturn(_this, _ret);
+            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = FavorScreen.__proto__ || Object.getPrototypeOf(FavorScreen)).call.apply(_ref, [this].concat(args))), _this), _this.state = {}, _this.renderItem = function (data) {
+                return _react3.default.createElement(_MovieIcon2.default, {
+                    item: data.item,
+                    bgColor: '#ff751a',
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 13
+                    }
+                });
+            }, _temp), _possibleConstructorReturn(_this, _ret);
         }
 
         _createClass(FavorScreen, [{
             key: "render",
             value: function render() {
                 console.log(this.props.data);
-                return _react3.default.createElement(_reactNative.View, {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 15
-                    }
-                });
+                return _react3.default.createElement(
+                    _reactNative.View,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 18
+                        }
+                    },
+                    _react3.default.createElement(_reactNative.FlatList, {
+                        data: this.props.data,
+                        renderItem: this.renderItem,
+                        keyExtractor: function keyExtractor(item) {
+                            return item.id.toString();
+                        },
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 19
+                        }
+                    })
+                );
             }
         }]);
 
         return FavorScreen;
     }(_react2.Component));
 
-    exports.default = FavorScreen;
+    var mapStateToProps = function mapStateToProps(_ref2) {
+        var data = _ref2.data;
+        return {
+            data: data
+        };
+    };
+
+    exports.default = (0, _reactRedux.connect)(mapStateToProps)(FavorScreen);
 },661,[118,179,12,639,640],"src\\containers\\FavorScreen.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
     Object.defineProperty(exports, "__esModule", {
@@ -83125,6 +83243,52 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   });
   var ADD_FAVOR_LIST = exports.ADD_FAVOR_LIST = 'add_favor_list';
 },664,[],"src\\actions\\type.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    var _redux = _require(_dependencyMap[0], "redux");
+
+    var _addFavorListReducer = _require(_dependencyMap[1], "./addFavorListReducer");
+
+    var _addFavorListReducer2 = _interopRequireDefault(_addFavorListReducer);
+
+    function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+    exports.default = (0, _redux.combineReducers)({
+        data: _addFavorListReducer2.default
+    });
+},663,[650,665],"src\\reducers\\index.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    exports.default = function () {
+        var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+        var action = arguments[1];
+
+        switch (action.type) {
+            case _type.ADD_FAVOR_LIST:
+                return [{
+                    id: action.payload.id,
+                    original_title: action.payload.original_title,
+                    poster_path: action.payload.poster_path,
+                    vote_average: action.payload.vote_average,
+                    vote_count: action.payload.vote_count,
+                    popularity: action.payload.popularity
+                }].concat(_toConsumableArray(state));
+
+            default:
+                return state;
+        }
+    };
+
+    var _type = _require(_dependencyMap[0], "../actions/type");
+
+    function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+},665,[664],"src\\reducers\\addFavorListReducer.js");
 require(44);
 require(11);
 //# sourceMappingURL=index.map
