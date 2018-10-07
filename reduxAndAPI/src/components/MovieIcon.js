@@ -17,7 +17,6 @@ class MovieIcon extends Component {
                 <View style={styles.textdetail}>
                     <MovieTextDetail item={this.props.item} />
                 </View>
-
             </View>
         );
     }

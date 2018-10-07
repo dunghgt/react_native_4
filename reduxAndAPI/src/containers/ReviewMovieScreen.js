@@ -60,7 +60,6 @@ class ReviewMovieScreen extends Component {
                     <Text style={styles.textoverview}>{this.props.navigation.getParam("item").overview}</Text>
                 </View>
             </ScrollView>
-
         );
     }
 }
