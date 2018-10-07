@@ -7,6 +7,7 @@ import MovieIcon from '../components/MovieIcon';
 
 import { connect } from 'react-redux';
 import { addFavorList } from '../actions';
+import MovieTextDetail from '../components/MovieTextDetail';
 
 class ReviewMovieScreen extends Component {
     state = {}
@@ -36,7 +37,6 @@ class ReviewMovieScreen extends Component {
         return (
             <ScrollView>
                 <View style={styles.container}>
-
                     <ImageBackground
                         style={styles.imagebg}
                         source={{ uri: `https://image.tmdb.org/t/p/w500${this.props.navigation.getParam("item").backdrop_path}` }}
@@ -47,25 +47,7 @@ class ReviewMovieScreen extends Component {
                         />
                     </ImageBackground>
                     <View style={styles.textdetail}>
-                        <Text
-                            style={styles.title}
-                            numberOfLines={2}>
-                            {this.props.navigation.getParam("item").original_title}
-                        </Text>
-                        <View style={{ flexDirection: 'row' }}>
-                            <View>
-                                <Text style={styles.vote}>{this.props.navigation.getParam("item").vote_average}</Text>
-                                <Text style={styles.textvote}>Ratings</Text>
-                            </View>
-                            <View style={{ marginLeft: 24 }}>
-                                <Text style={styles.vote}>{this.props.navigation.getParam("item").popularity}</Text>
-                                <Text style={styles.textvote}>Popularity</Text>
-                            </View>
-                        </View>
-                        <View style={{ flexDirection: 'row', marginVertical: 5 }}>
-                            <Text style={styles.relesase}>Release date:</Text>
-                            <Text style={styles.relesasedate}>{this.props.navigation.getParam("item").release_date}</Text>
-                        </View>
+                        <MovieTextDetail item={this.props.navigation.getParam("item")} />
                     </View>
                     <View style={styles.button}>
                         <TouchableOpacity
@@ -106,6 +88,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         borderRadius: 10,
     },
+    textdetail: {
+        paddingLeft: 145,
+        height: 150,
+    },
     overview: {
         fontSize: 18,
         fontWeight: 'bold',
@@ -131,36 +117,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         borderRadius: 2,
     },
-    textdetail: {
-        marginVertical: 14,
-        paddingLeft: 140,
-        marginHorizontal: 20,
-        height: 135,
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#f2f2f2',
-        marginBottom: 6,
-    },
-    vote: {
-        fontSize: 18,
-        color: '#ff8000',
-    },
-    textvote: {
-        fontSize: 15,
-        color: '#e6e6e6'
-    },
-    relesase: {
-        fontSize: 15,
-        fontWeight: '600',
-        color: '#f2f2f2'
-    },
-    relesasedate: {
-        fontSize: 14,
-        color: '#e6e6e6',
-        marginLeft: 5
-    }
+
 })
 
 

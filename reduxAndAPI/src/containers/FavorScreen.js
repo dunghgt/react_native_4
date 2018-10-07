@@ -23,7 +23,7 @@ class FavorScreen extends Component {
                 item: data.item,
             })}
             onLongPress={() => this.delItem(data.item)}>
-            <MovieIcon item={data.item} bgColor={'#33334d'} />
+            <MovieIcon item={data.item} />
         </TouchableOpacity>
 
     }

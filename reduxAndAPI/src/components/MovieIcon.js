@@ -3,6 +3,7 @@ import {
     Text, StyleSheet, Image,
     View,
 } from 'react-native';
+import MovieTextDetail from './MovieTextDetail';
 
 class MovieIcon extends Component {
     state = {}
@@ -13,22 +14,8 @@ class MovieIcon extends Component {
                     style={styles.image}
                     source={{ uri: `https://image.tmdb.org/t/p/w500${this.props.item.poster_path}` }}
                 />
-                <View style={[styles.textdetail, { backgroundColor: this.props.bgColor }]}>
-                    <Text style={styles.title}>{this.props.item.original_title}</Text>
-                    <View style={{ flexDirection: 'row' }}>
-                        <View>
-                            <Text style={styles.vote}>{this.props.item.vote_average}</Text>
-                            <Text style={styles.textvote}>Ratings</Text>
-                        </View>
-                        <View style={{ marginLeft: 24 }}>
-                            <Text style={styles.vote}>{this.props.item.popularity}</Text>
-                            <Text style={styles.textvote}>Popularity</Text>
-                        </View>
-                    </View>
-                    <View style={{ flexDirection: 'row', marginVertical: 5 }}>
-                        <Text style={styles.release}>Release date:</Text>
-                        <Text style={styles.releasedate}>{this.props.item.release_date}</Text>
-                    </View>
+                <View style={styles.textdetail}>
+                    <MovieTextDetail item={this.props.item} />
                 </View>
 
             </View>
@@ -47,12 +34,11 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 120,
-        height: 180,
+        height: 195,
     },
     textdetail: {
-        padding: 6,
+        backgroundColor: '#33334d',
         width: 200,
-        height: 150,
         elevation: 10,
         justifyContent: 'center',
     },
