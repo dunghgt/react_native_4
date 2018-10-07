@@ -41,7 +41,7 @@ class ListMovieScreen extends Component {
                         keyExtractor={(item) => {
                             return item.id
                         }}
-                        numColumns={2}
+                        numColumns={3}
                     />
                 }
             </View>
@@ -51,7 +51,8 @@ class ListMovieScreen extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#1a0008',
+        backgroundColor: '#29293d',
+        paddingTop: 20,
     }
 })
 

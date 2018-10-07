@@ -19,10 +19,7 @@ const Navigation = createStackNavigator({
     screen: ListMovieScreen,
     navigationOptions: ({ navigation }) => ({
       title: 'Movie Trending',
-      headerStyle: {
-        backgroundColor: '#cc0052',
-      },
-      headerTintColor: '#fff',
+      // headerTintColor: '#fff',
       headerTitleStyle: {
         fontSize: 20,
         fontWeight: 'bold',
@@ -32,22 +29,19 @@ const Navigation = createStackNavigator({
           <Text style={{
             fontSize: 18,
             fontWeight: 'bold',
-            color: '#f2f2f2',
-            marginEnd: 10,
+            color: '#e60073',
+            marginEnd: 20,
           }}>
             List Favorite
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity >
     })
   },
   ReviewMovie: {
     screen: ReviewMovieScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'Movie Trending Overview',
-      headerStyle: {
-        backgroundColor: '#cc0052',
-      },
-      headerTintColor: '#fff',
+      title: 'Movie Detail',
+      // headerTintColor: '#fff',
       headerTitleStyle: {
         fontSize: 20,
         fontWeight: 'bold',
@@ -58,10 +52,7 @@ const Navigation = createStackNavigator({
     screen: FavorScreen,
     navigationOptions: ({ navigation }) => ({
       title: 'Favorite Movie',
-      headerStyle: {
-        backgroundColor: '#cc0052',
-      },
-      headerTintColor: '#fff',
+      headerTintColor: '#e60073',
       headerTitleStyle: {
         fontSize: 20,
         fontWeight: 'bold',
