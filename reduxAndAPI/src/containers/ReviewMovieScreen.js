@@ -29,8 +29,6 @@ class ReviewMovieScreen extends Component {
             overview: this.props.navigation.getParam("item").overview
         })
         this.props.navigation.navigate('FavorMovie')
-
-
     }
 
     render() {
@@ -116,7 +114,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         borderRadius: 2,
     },
-
 })
 
 
