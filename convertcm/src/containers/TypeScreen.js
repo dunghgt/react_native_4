@@ -13,12 +13,22 @@ class TypeScreen extends Component {
         return (
             <View>
                 <View>
-                    <TouchableOpacity style={[styles.container, styles.bgColor1]}>
+                    <TouchableOpacity
+                        style={[styles.container, styles.bgColor1]}
+                        onPress={() => this.props.navigation.navigate('Convert', {
+                            indexData: 0,
+                            check: true
+                        })}>
                         <Text style={styles.text}>Weight</Text>
                     </TouchableOpacity>
                 </View>
                 <View>
-                    <TouchableOpacity style={[styles.container, styles.bgColor2]}>
+                    <TouchableOpacity
+                        style={[styles.container, styles.bgColor2]}
+                        onPress={() => this.props.navigation.navigate('Convert', {
+                            indexData: 1,
+                            check: true
+                        })}>
                         <Text style={styles.text}>Length</Text>
                     </TouchableOpacity>
                 </View>

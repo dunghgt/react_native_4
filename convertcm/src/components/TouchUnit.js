@@ -6,19 +6,31 @@ import {
 } from 'react-native';
 
 import { connect } from 'react-redux'
-import { convertNumber } from '../actions/index'
-import { choiceUnit } from '../actions/index'
+import { choiceUnit, convertNumber } from '../actions/index'
+
+
 
 class TouchUnit extends Component {
     state = {}
+
+    _choiceUnit = () => {
+        this.props.choiceUnit({
+            column: this.props.column,
+            valueId: this.props.item.id
+        })
+    }
+
     render() {
         return (
             <View style={[styles.container, { backgroundColor: this.props.item.color }]}>
                 <TouchableOpacity
-                    onPress={() => {
-                        this.props.choiceUnit({ index: this.props.item.id })
-                    }}>
-                    <Text style={[styles.text, { color: this.props.choice[this.props.item.id].value ? 'red' : 'white' }]}>{this.props.item.text}</Text>
+                    onPress={this._choiceUnit}>
+                    <Text style={[
+                        styles.text,
+                        { color: this.props.choice[this.props.column].listValue[this.props.item.id].value ? 'red' : 'white' }
+                    ]}>
+                        {this.props.item.text}
+                    </Text>
                 </TouchableOpacity>
             </View>
         );
@@ -28,7 +40,7 @@ class TouchUnit extends Component {
 const styles = StyleSheet.create({
     container: {
         width: Dimensions.get('window').width / 2,
-        paddingStart: 40,
+        paddingStart: 24,
         paddingVertical: 10,
     },
     text: {
@@ -37,5 +49,5 @@ const styles = StyleSheet.create({
     }
 })
 
-const mapStateToProps = ({ choice }) => ({ choice })
-export default connect(mapStateToProps, { choiceUnit })(TouchUnit);
+const mapStateToProps = ({ data, choice }) => ({ data, choice })
+export default connect(mapStateToProps, { choiceUnit, convertNumber })(TouchUnit);

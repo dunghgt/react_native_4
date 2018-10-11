@@ -4,17 +4,35 @@ import {
     View, StyleSheet,
 } from 'react-native';
 
+import { connect } from 'react-redux'
+import { convertNumber } from '../actions'
+
 class Input extends Component {
-    state = {}
+    state = {
+        text: ''
+    }
+
+    onChangeText = (text) => {
+        this.setState({ text })
+        this.props.convertNumber({
+            number: text,
+            index1: this.props.choice[this.props.column].listValue.filter(val => val.value == true)[0].id,
+            index2: this.props.choice[this.props.column == 1 ? 0 : 1].listValue.filter(val => val.value == true)[0].id,
+            column: this.props.column
+        })
+    }
+
     render() {
         return (
+
             <View style={styles.container}>
                 <TextInput
+                    keyboardType='numeric'
                     style={styles.textinput}
                     textAlign={'center'}
                     underlineColorAndroid={'#ff8000'}
-                    onChangeText={(text) => this.setState({ text })}
-                    value={this.state.text}
+                    onChangeText={this.onChangeText}
+                    value={this.props.column != this.props.data.column ? `${this.props.data.result}` : this.state.text}
                 />
             </View>
         );
@@ -35,4 +53,5 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Input;
+const mapStateToProps = ({ data, choice }) => ({ data, choice })
+export default connect(mapStateToProps, { convertNumber })(Input);

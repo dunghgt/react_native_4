@@ -6,42 +6,20 @@ import {
 } from 'react-native';
 import TouchUnit from './TouchUnit';
 
-const data = [
-    {
-        id: 0,
-        text: 'Milimeter',
-        color: '#ff8000'
-    },
-    {
-        id: 1,
-        text: 'Centimeter',
-        color: '#ffa64d'
-    },
-    {
-        id: 2,
-        text: 'Decimeter',
-        color: '#ff8000'
-    },
-    {
-        id: 3,
-        text: 'Meter',
-        color: '#ffa64d'
-    }
-]
+import { data } from '../data.json'
 
 class Type extends Component {
     state = {}
 
     renderItem = ({ item }) => {
-        return <TouchUnit item={item} />
+        return <TouchUnit item={item} column={this.props.column} />
     }
 
     render() {
         return (
             <View>
-
                 <FlatList
-                    data={data}
+                    data={data[this.props.indexData]}
                     renderItem={this.renderItem}
                     keyExtractor={(item) => item.id.toString()}
                 />

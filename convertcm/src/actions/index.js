@@ -1,4 +1,4 @@
-import { CONVERT_NUMBER, CHOICE_UNIT, CHOICERIGHT_UNIT } from "./type";
+import { CONVERT_NUMBER, CHOICE_UNIT } from "./type";
 
 export const convertNumber = (data) => ({
     type: CONVERT_NUMBER,
@@ -10,7 +10,3 @@ export const choiceUnit = (data) => ({
     payload: data
 })
 
-export const choiceRightUnit = (data) => ({
-    type: CHOICERIGHT_UNIT,
-    payload: data
-})
