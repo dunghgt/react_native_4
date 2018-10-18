@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 import {
     Text,
     View,
-    StyleSheet
 } from 'react-native';
 
-class HomeScreen extends Component {
+class TabMenu extends Component {
     state = {}
     render() {
         return (
             <View>
-                <Text>Home Screen</Text>
+                <Text>Tab menu</Text>
             </View>
         );
     }
 }
 
-export default HomeScreen;
+export default TabMenu;

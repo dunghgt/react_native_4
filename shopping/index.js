@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
 import App from './src/containers/App';
 
-AppRegistry.registerComponent('shopping', () => App);
+AppRegistry.registerComponent('OrderFood', () => App);
