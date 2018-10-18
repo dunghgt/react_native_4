@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "514015789973",
-    "firebase_url": "https://orderfood-cf117.firebaseio.com",
-    "project_id": "orderfood-cf117",
-    "storage_bucket": "orderfood-cf117.appspot.com"
+    "project_number": "973683574304",
+    "firebase_url": "https://shopping-86ba3.firebaseio.com",
+    "project_id": "shopping-86ba3",
+    "storage_bucket": "shopping-86ba3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:514015789973:android:bf9ff6f1a59fd7b7",
+        "mobilesdk_app_id": "1:973683574304:android:a00f43a0b15be47c",
         "android_client_info": {
-          "package_name": "com.orderfood"
+          "package_name": "com.shopping"
         }
       },
       "oauth_client": [
         {
-          "client_id": "514015789973-1uqrd5a2ct9jmb9ci9guqrbodgbepu5f.apps.googleusercontent.com",
+          "client_id": "973683574304-7s3fs9lc3j5k7kqfij6l89npc200486u.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBvvKz4AojjmFr4c_bayU4aewHrwbaZu88"
+          "current_key": "AIzaSyCSIZqQ67YSSH3zPH_vDj35GxvWz5HrhkQ"
         }
       ],
       "services": {
