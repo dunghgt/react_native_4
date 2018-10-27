@@ -12,8 +12,8 @@ class SplashScreen
     state = {}
     componentDidMount() {
         firebase.auth().onAuthStateChanged(res => res !== null
-            ? setTimeout(() => this.props.navigation.navigate('LoginScreen'), 2000)
-            : setTimeout(() => this.props.navigation.navigate('HomeScreen'), 2000))
+            ? setTimeout(() => this.props.navigation.navigate('HomeScreen'), 2000)
+            : setTimeout(() => this.props.navigation.navigate('LoginScreen'), 2000))
     }
     renderLogo = () => (
         <Image

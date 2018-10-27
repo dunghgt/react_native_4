@@ -9,7 +9,8 @@ class TabInfo extends Component {
     render() {
         return (
             <View>
-                <Text>Tab Info</Text>
+                <Text>Infomation</Text>
+
             </View>
         );
     }
