@@ -10,9 +10,3 @@ export const delOrder = (item) => ({
     type: DEL_ORDER,
     payload: item,
 })
-
-export const totalOrder = (total) => ({
-    type: TOTAL_ORDER,
-    // totalOrder, totalPrice 
-    payload: total
-})
