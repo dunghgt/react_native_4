@@ -16,13 +16,13 @@ class OrderItem extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity
+                {!this.props.historyMode && <TouchableOpacity
                     onPress={() => this.props.delOrder({
                         name: this.props.item.name
                     })}
                 >
                     <Icon style={styles.icon} name='trash' size={25} color={primaryColorGreen} />
-                </TouchableOpacity>
+                </TouchableOpacity>}
                 <Text style={styles.number}>
                     {this.props.item.amount}
                 </Text>

@@ -4,13 +4,31 @@ import {
     View, FlatList,
 } from 'react-native';
 
-import { backgroundColor, commonStyles, primaryColorBrown } from '../styles'
+import { backgroundColor, commonStyles, primaryColorBrown, primaryColorRed } from '../styles'
 import OrderItem from '../components/OrderItem';
 
 import { connect } from 'react-redux'
+import firebase from 'react-native-firebase'
+import { clearOrder } from '../actions'
 
 class TapOrder extends Component {
-    state = {}
+    state = {
+
+    }
+
+    componentDidMount() {
+        this.loadData()
+        // { this.state.history == null && this.setState({ history: [] }) }
+    }
+
+    loadData() {
+        firebase.database().ref('/users')
+            .child(firebase.auth().currentUser.uid)
+            .child('history')
+            .on('value', res => {
+                this.setState({ history: res._value != null ? res._value : [] })
+            })
+    }
 
     renderTitle = () => <Text style={commonStyles.screenTitle}>Order</Text>
 
@@ -38,17 +56,34 @@ class TapOrder extends Component {
     </View>
 
     confirmOrder = () => {
-
+        this.state.history.unshift({
+            date: new Date().toDateString(),
+            isDone: false,
+            orders: this.props.orders
+        })
+        firebase.database().ref('/users')
+            .child(firebase.auth().currentUser.uid)
+            .child('history')
+            .set(this.state.history)
+        this.props.clearOrder()
+        this.props.navigation.navigate('History')
     }
 
-    renderConfirm = () => <TouchableOpacity style={[commonStyles.button, {
-        position: 'absolute',
-        bottom: 16,
-        alignSelf: 'center'
-    }]}
-        onPress={this.confirmOrder}>
-        <Text style={{ color: 'white' }}>Confirm</Text>
-    </TouchableOpacity>
+    renderConfirm = () => {
+        let ifOrdersNotExist = this.props.orders == 0
+        return (
+            <TouchableOpacity style={[commonStyles.button, {
+                position: 'absolute',
+                bottom: 16,
+                alignSelf: 'center',
+                backgroundColor: ifOrdersNotExist ? 'gray' : primaryColorRed
+            }]}
+                disabled={ifOrdersNotExist}
+                onPress={this.confirmOrder}>
+                <Text style={{ color: 'white' }}>Confirm</Text>
+            </TouchableOpacity>
+        )
+    }
 
     render() {
         return (
@@ -79,4 +114,4 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = ({ orders }) => ({ orders })
 
-export default connect(mapStateToProps)(TapOrder);
+export default connect(mapStateToProps, ({ clearOrder }))(TapOrder);
